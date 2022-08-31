@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="ja>
+<head>
+    <meta charset="UTF-8">
+    <title>Score Tag</title>
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'web/style.css' %}" />
+     <link rel="icon" type="image/png"
+         href="{% static 'web/icon/favicon.png' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+<br><br>
+<form method="GET" action="{{ url }}" class="form">
+            <div class="inputbox">
+            <input class="indexinput" type="text" placeholder=" DBを検索" name="keyword">
+            <button class="" type="submit">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+            </div>
+</form>
+<div class="button_solid019">
+	<a href="{{ url }}/edit/?edit=False">新規</a>
+</div>
+{% for item in data %}
+<hr class="text">
+<div class="text"><a href="{% url 'db' item.id %}">{{ item.title }}</a></div>
+{% endfor %}
+<hr class="text">
+</body>
+</html>

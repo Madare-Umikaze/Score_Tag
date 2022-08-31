@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="ja>
+<head>
+    <meta charset="UTF-8">
+    <title>Score Tag</title>
+    <link rel="stylesheet" type="text/css"
+        href="{% static 'web/style.css' %}"  />
+</head>
+<body>
+<table>
+    <form action="{% url 'edit' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <input type="hidden" name="hidden_data" value="{{ id }}">
+    <tr><td></td><td><div class="button_solid019"><input type="submit" name="{{ formtype }}" value="決定"></div></td></tr>
+    </form>
+</table>
+</body>
+</html>
